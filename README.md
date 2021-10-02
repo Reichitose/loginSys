@@ -60,7 +60,8 @@ cookie两周免登陆
 
 ## 4.项目结构
 
-'''main
+```
+main
     ├─java
     │  └─com
     │      └─reiuy
@@ -118,4 +119,4 @@ cookie两周免登陆
                     pwdError.jsp
                     registerresult.jsp
                     vcodeError.jsp
-'''
+```
