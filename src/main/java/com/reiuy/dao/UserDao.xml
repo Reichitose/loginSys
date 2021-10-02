@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间，格式：com.reiuy.dao.XxxDao-->
+<mapper namespace="com.reiuy.dao.UserDao">
+    <!--id 需要执行的sql语句的唯一表示,要求使用接口中的方法名 例如selectStudents-->
+    <!--resultType 只有select语句中有，指定返回值的类型的全限定名名称 例如 com.reiuy.domain.Student-->
+
+    <select id="selectUser" resultType="com.reiuy.entity.User">
+        <!--标签之间写语句，如果不是select，记得换标签-->
+        select username,userpwd,userlastlogin,userlogincount from user where username=#{username} and userpwd=#{userpwd}
+    </select>
+    <!--登录时的条件查询-->
+
+
+
+    <insert id="addUser">
+        insert into user (username,userpwd,userlastlogin,userlogincount) VALUES (#{username},#{userpwd},#{userlastlogin},#{userlogincount})
+    </insert>
+    <!--注册时的插入-->
+
+
+    <update id="updateUser">
+        update user set userlastlogin=#{userlastlogin},userlogincount=#{userlogincount} where username=#{username}
+    </update>
+    <!--更新最后登录时间和登录次数-->
+
+
+    <select id="selectsamename" resultType="com.reiuy.entity.User">
+        select username from user where username=#{username}
+    </select>
+    <!--查重-->
+
+</mapper>
